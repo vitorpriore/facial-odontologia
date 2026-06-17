@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dra. Isabella Sotero · Facial Odontologia · João Pessoa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<style>
+:root {
+  --petrol: oklch(38% 0.07 220);
+  --petrol-deep: oklch(28% 0.07 220);
+  --petrol-light: oklch(55% 0.07 220);
+  --petrol-mist: oklch(38% 0.07 220 / 0.08);
+  --petrol-mid: oklch(38% 0.07 220 / 0.18);
+  --gold: oklch(76% 0.06 78);
+  --gold-light: oklch(86% 0.04 78);
+  --cream: oklch(97% 0.008 100);
+  --cream-warm: oklch(95% 0.012 90);
+  --cream-deep: oklch(92% 0.015 85);
+  --ink: oklch(18% 0.012 220);
+  --ink-soft: oklch(35% 0.015 220);
+  --ink-muted: oklch(55% 0.012 220);
+  --text-body: oklch(28% 0.012 220);
+
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body: 'Jost', sans-serif;
+
+  --sp-xs: 0.5rem;
+  --sp-s: 1rem;
+  --sp-m: 1.5rem;
+  --sp-l: 2.5rem;
+  --sp-xl: 4rem;
+  --sp-2xl: 6rem;
+  --sp-3xl: 9rem;
+
+  --r-card: 1.25rem;
+  --r-arc: 50% 50% 0 0 / 40% 40% 0 0;
+  --r-pill: 99px;
+
+  --container: min(1200px, 100%);
+  --pad: clamp(1.25rem, 5vw, 5rem);
+
+  --shadow-card: 0 2px 8px oklch(0% 0 0 / 0.04), 0 8px 32px oklch(0% 0 0 / 0.07), 0 24px 64px oklch(0% 0 0 / 0.05);
+  --shadow-sm: 0 1px 4px oklch(0% 0 0 / 0.06), 0 4px 16px oklch(0% 0 0 / 0.08);
+  --shadow-btn: 0 4px 16px oklch(38% 0.07 220 / 0.35);
+
+  --ease-out-expo: cubic-bezier(.16,1,.3,1);
+  --ease-out-quint: cubic-bezier(.22,1,.36,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-body);
+  background: var(--cream);
+  color: var(--text-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.label-tag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--petrol-light);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.25rem;
+  margin-bottom: var(--sp-m);
+}
+
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.section-title em {
+  font-style: italic;
+  color: var(--petrol);
+}
+
+.body-text {
+  font-family: var(--ff-body);
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  line-height: 1.75;
+  color: var(--text-body);
+  max-width: 58ch;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--petrol);
+  color: var(--cream);
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border-radius: var(--r-pill);
+  box-shadow: var(--shadow-btn);
+  transition: background 200ms var(--ease-out-quint), transform 150ms var(--ease-out-quint), box-shadow 200ms;
+  min-height: 44px;
+}
+.btn-primary:hover { background: var(--petrol-deep); transform: translateY(-2px); box-shadow: 0 8px 28px oklch(38% 0.07 220 / 0.45); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--petrol);
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--petrol);
+  transition: background 200ms, color 200ms, transform 150ms;
+  min-height: 44px;
+}
+.btn-ghost:hover { background: var(--petrol-mist); transform: translateY(-2px); }
+.btn-ghost:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.divider-gold {
+  width: 3rem;
+  height: 1px;
+  background: var(--gold);
+  margin-block: var(--sp-m);
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  z-index: 9999;
+}
+
+/* ════════════════════════════════
+   NAV
+════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: oklch(97% 0.008 100 / 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid oklch(38% 0.07 220 / 0.1);
+  transition: background 300ms;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: var(--sp-m);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+.nav-logo img {
+  height: 36px;
+  width: auto;
+}
+.nav-wordmark {
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.nav-wordmark span { font-style: italic; color: var(--petrol); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-l);
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 200ms;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.nav-links a:hover { color: var(--petrol); }
+
+.nav-cta { flex-shrink: 0; }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 300ms, opacity 200ms;
+}
+
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  background: var(--cream);
+  border-top: 1px solid var(--petrol-mid);
+  padding: var(--sp-m) var(--pad);
+  gap: var(--sp-s);
+}
+.nav-mobile a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--petrol-mid);
+  transition: color 200ms;
+}
+.nav-mobile a:last-child { border-bottom: none; }
+.nav-mobile.open { display: flex; }
+
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ════════════════════════════════
+   HERO
+════════════════════════════════ */
+.hero {
+  min-height: 100svh;
+  padding-top: 68px;
+  background: var(--cream-warm);
+  overflow: hidden;
+  position: relative;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100svh - 68px);
+  position: relative;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--sp-2xl);
+  padding-right: var(--sp-xl);
+  position: relative;
+  z-index: 2;
+}
+.hero-edition-tag {
+  font-family: var(--ff-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: var(--sp-m);
+}
+.hero-name {
+  font-family: var(--ff-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: var(--sp-xs);
+}
+.hero-name em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--petrol);
+  display: block;
+}
+.hero-title-line {
+  font-family: var(--ff-display);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--petrol-light);
+  margin-bottom: var(--sp-l);
+}
+.hero-tagline {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: var(--sp-m);
+  max-width: 20ch;
+}
+.hero-tagline em { font-style: italic; color: var(--petrol); }
+.hero-sub {
+  font-size: clamp(0.88rem, 1.4vw, 1rem);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 44ch;
+  margin-bottom: var(--sp-xl);
+}
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-m);
+  flex-wrap: wrap;
+}
+.hero-cro {
+  margin-top: var(--sp-xl);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-cro::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-photo-wrap {
+  position: relative;
+  width: 88%;
+  max-width: 480px;
+  aspect-ratio: 3/4;
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  align-self: flex-end;
+}
+.hero-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.hero-photo-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, oklch(38% 0.07 220 / 0.12) 0%, transparent 50%);
+}
+
+.hero-monogram {
+  position: absolute;
+  right: -4%;
+  top: 10%;
+  font-family: var(--ff-display);
+  font-size: clamp(10rem, 22vw, 20rem);
+  font-weight: 600;
+  color: oklch(38% 0.07 220 / 0.055);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.hero-gold-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 3rem;
+  height: 1px;
+  background: var(--gold);
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: auto;
+    padding-block: 0;
+  }
+  .hero-visual {
+    order: -1;
+    padding-top: var(--sp-l);
+    justify-content: center;
+    padding-inline: var(--pad);
+  }
+  .hero-photo-wrap {
+    width: 75%;
+    max-width: 320px;
+    aspect-ratio: 4/5;
+    border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+  }
+  .hero-content {
+    padding-right: 0;
+    padding-block: var(--sp-l) var(--sp-2xl);
+    text-align: center;
+    align-items: center;
+  }
+  .hero-tagline { max-width: 100%; }
+  .hero-sub { max-width: 100%; }
+  .hero-ctas { justify-content: center; }
+  .hero-cro { justify-content: center; }
+  .hero-monogram { display: none; }
+}
+
+/* ════════════════════════════════
+   CREDIBILIDADE
+════════════════════════════════ */
+.cred {
+  background: var(--petrol);
+  padding-block: var(--sp-2xl);
+  position: relative;
+  overflow: hidden;
+}
+.cred::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, oklch(55% 0.07 220 / 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cred-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+.cred-item {
+  text-align: center;
+  padding-inline: var(--sp-m);
+  position: relative;
+}
+.cred-item + .cred-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: oklch(100% 0 0 / 0.15);
+}
+.cred-number {
+  font-family: var(--ff-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.02em;
+}
+.cred-number sup {
+  font-size: 0.5em;
+  vertical-align: super;
+  color: var(--gold-light);
+}
+.cred-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: oklch(90% 0.015 200);
+  line-height: 1.4;
+}
+
+.cred-institutions {
+  margin-top: var(--sp-xl);
+  padding-top: var(--sp-xl);
+  border-top: 1px solid oklch(100% 0 0 / 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-l);
+  flex-wrap: wrap;
+}
+.cred-inst-item {
+  font-family: var(--ff-display);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: oklch(85% 0.02 200);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .cred-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-l) 0;
+  }
+  .cred-item:nth-child(2)::before { display: none; }
+  .cred-item:nth-child(3)::before { display: none; }
+  .cred-institutions { gap: var(--sp-m); }
+  .cred-inst-item { font-size: 0.78rem; }
+}
+
+/* ════════════════════════════════
+   SOBRE
+════════════════════════════════ */
+.sobre {
+  padding-block: var(--sp-3xl);
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.sobre-inner {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+.sobre-photo-col {
+  position: relative;
+}
+.sobre-arc {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+.sobre-arc img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.sobre-arc-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, transparent 60%, oklch(38% 0.07 220 / 0.08) 100%);
+}
+.sobre-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+}
+.sobre-badge svg { width: 120px; height: 120px; }
+
+.sobre-content {}
+.sobre-quote {
+  font-family: var(--ff-display);
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--petrol);
+  margin-bottom: var(--sp-l);
+  max-width: 36ch;
+}
+.sobre-text {
+  font-size: clamp(0.88rem, 1.4vw, 1rem);
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: var(--sp-m);
+  max-width: 58ch;
+}
+.sobre-formacoes {
+  margin-top: var(--sp-l);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.sobre-form-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.sobre-form-dot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 0.45rem;
+}
+
+.sobre-monogram-bg {
+  position: absolute;
+  right: -3%;
+  bottom: -5%;
+  font-family: var(--ff-display);
+  font-size: clamp(12rem, 20vw, 18rem);
+  font-weight: 600;
+  color: oklch(38% 0.07 220 / 0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+}
+
+@media (max-width: 768px) {
+  .sobre-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center;
+  }
+  .sobre-photo-col { max-width: 300px; margin-inline: auto; }
+  .sobre-content { display: flex; flex-direction: column; align-items: center; }
+  .sobre-quote { text-align: center; }
+  .sobre-text { text-align: center; max-width: 100%; }
+  .sobre-formacoes { align-items: flex-start; text-align: left; width: 100%; max-width: 400px; }
+  .sobre-badge { right: -0.5rem; }
+  .sobre-monogram-bg { display: none; }
+}
+
+/* ════════════════════════════════
+   TRATAMENTOS
+════════════════════════════════ */
+.tratamentos {
+  padding-block: var(--sp-3xl);
+  background: var(--cream-warm);
+  overflow: hidden;
+}
+.tratamentos-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-xl);
+  align-items: end;
+  margin-bottom: var(--sp-2xl);
+}
+.tratamentos-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.tratamentos-header-right .body-text {
+  text-align: right;
+  max-width: 38ch;
+}
+
+.tratamentos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.trat-card {
+  background: var(--cream);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 300ms var(--ease-out-quint), box-shadow 300ms;
+  display: flex;
+  flex-direction: column;
+}
+.trat-card:hover { transform: translateY(-6px); box-shadow: 0 4px 12px oklch(0% 0 0 / 0.06), 0 16px 48px oklch(0% 0 0 / 0.1), 0 32px 80px oklch(0% 0 0 / 0.07); }
+.trat-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: relative;
+  background: var(--cream-deep);
+}
+.trat-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms var(--ease-out-expo);
+}
+.trat-card:hover .trat-card-img img { transform: scale(1.04); }
+.trat-card-body {
+  padding: var(--sp-l) var(--sp-m) var(--sp-m);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.trat-card-num {
+  font-family: var(--ff-display);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.trat-card-title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+.trat-card-desc {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  flex: 1;
+  margin-bottom: var(--sp-m);
+}
+.trat-card-link {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--petrol);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 200ms;
+}
+.trat-card-link:hover { gap: 0.7rem; }
+
+@media (max-width: 900px) {
+  .tratamentos-grid { grid-template-columns: repeat(2, 1fr); }
+  .tratamentos-header { grid-template-columns: 1fr; gap: var(--sp-m); }
+  .tratamentos-header-right { align-items: flex-start; }
+  .tratamentos-header-right .body-text { text-align: left; }
+}
+@media (max-width: 600px) {
+  .tratamentos-grid { grid-template-columns: 1fr; }
+  .tratamentos-header { text-align: center; }
+  .tratamentos-header-right { align-items: center; }
+  .tratamentos-header-right .body-text { text-align: center; max-width: 100%; }
+}
+
+/* ════════════════════════════════
+   COMO FUNCIONA
+════════════════════════════════ */
+.como {
+  padding-block: var(--sp-3xl);
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.como-inner {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+.como-img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--r-arc);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.como-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.como-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xl);
+}
+.como-step {
+  display: flex;
+  gap: var(--sp-m);
+  align-items: flex-start;
+}
+.como-step-num {
+  font-family: var(--ff-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: var(--petrol-mist);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 3rem;
+  color: oklch(38% 0.07 220 / 0.2);
+}
+.como-step-content {}
+.como-step-title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+.como-step-desc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 44ch;
+}
+
+@media (max-width: 768px) {
+  .como-inner {
+    grid-template-columns: 1fr;
+  }
+  .como-img {
+    max-width: 300px;
+    margin-inline: auto;
+    aspect-ratio: 1;
+    border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+  }
+  .como-steps { text-align: center; align-items: center; }
+  .como-step { flex-direction: column; align-items: center; text-align: center; }
+  .como-step-num { width: auto; }
+  .como-step-desc { max-width: 100%; }
+}
+
+/* ════════════════════════════════
+   GALERIA
+════════════════════════════════ */
+.galeria {
+  padding-block: var(--sp-3xl);
+  background: var(--cream-warm);
+  overflow: hidden;
+}
+.galeria-header {
+  margin-bottom: var(--sp-2xl);
+  display: flex;
+  flex-direction: column;
+}
+.galeria-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+.gal-item {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--ease-out-expo);
+  display: block;
+}
+.gal-item:hover img { transform: scale(1.035); }
+.gal-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, oklch(28% 0.07 220 / 0.25) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.gal-item:hover .gal-item-overlay { opacity: 1; }
+.gal-item.large { grid-column: span 2; aspect-ratio: 16/9; }
+.gal-item.tall { grid-row: span 2; aspect-ratio: 3/4; }
+.gal-item.square { aspect-ratio: 1; }
+.gal-item.wide { grid-column: span 2; aspect-ratio: 16/9; }
+.gal-item.standard { aspect-ratio: 4/3; }
+
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+  }
+  .gal-item.large { grid-column: span 2; aspect-ratio: 16/9; }
+  .gal-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
+}
+@media (max-width: 500px) {
+  .galeria-grid { grid-template-columns: 1fr; }
+  .gal-item.large { grid-column: span 1; }
+  .gal-item.wide { grid-column: span 1; }
+}
+
+/* ════════════════════════════════
+   DEPOIMENTOS
+════════════════════════════════ */
+.depoimentos {
+  padding-block: var(--sp-3xl);
+  background: var(--petrol-deep);
+  position: relative;
+  overflow: hidden;
+}
+.depoimentos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, oklch(55% 0.07 220 / 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.depoimentos-header {
+  text-align: center;
+  margin-bottom: var(--sp-2xl);
+  position: relative;
+  z-index: 1;
+}
+.depoimentos-header .label-tag {
+  color: var(--gold-light);
+  border-color: oklch(76% 0.06 78 / 0.5);
+}
+.depoimentos-header .section-title { color: var(--cream); }
+.depoimentos-header .section-title em { color: var(--gold-light); }
+
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+.dep-card {
+  background: oklch(100% 0 0 / 0.05);
+  border: 1px solid oklch(100% 0 0 / 0.1);
+  border-radius: var(--r-card);
+  padding: var(--sp-l) var(--sp-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-m);
+  backdrop-filter: blur(8px);
+  transition: background 300ms, transform 300ms var(--ease-out-quint);
+}
+.dep-card:hover { background: oklch(100% 0 0 / 0.08); transform: translateY(-4px); }
+.dep-quote-mark {
+  font-family: var(--ff-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-top: -0.5rem;
+}
+.dep-text {
+  font-family: var(--ff-display);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-style: italic;
+  line-height: 1.65;
+  color: oklch(95% 0.008 200);
+  flex: 1;
+}
+.dep-stars {
+  display: flex;
+  gap: 0.2rem;
+}
+.dep-star {
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+.dep-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: var(--sp-s);
+  border-top: 1px solid oklch(100% 0 0 / 0.1);
+}
+.dep-author-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: oklch(90% 0.01 200);
+}
+.dep-author-context {
+  font-size: 0.72rem;
+  color: oklch(70% 0.015 200);
+}
+
+@media (max-width: 768px) {
+  .depoimentos-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+}
+
+/* ════════════════════════════════
+   FAQ
+════════════════════════════════ */
+.faq {
+  padding-block: var(--sp-3xl);
+  background: var(--cream);
+  overflow: hidden;
+}
+.faq-inner {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+.faq-col-left { position: sticky; top: 100px; }
+.faq-col-left .body-text { max-width: 32ch; }
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--petrol-mid);
+}
+.faq-item:first-child { border-top: 1px solid var(--petrol-mid); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-m);
+  padding-block: var(--sp-m);
+  cursor: pointer;
+  font-family: var(--ff-display);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  min-height: 44px;
+  transition: color 200ms;
+}
+.faq-q:hover { color: var(--petrol); }
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--petrol-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 200ms, border-color 200ms, transform 300ms var(--ease-out-quint);
+}
+.faq-item.open .faq-icon {
+  background: var(--petrol);
+  border-color: var(--petrol);
+  transform: rotate(45deg);
+}
+.faq-icon svg { width: 12px; height: 12px; stroke: var(--petrol); transition: stroke 200ms; }
+.faq-item.open .faq-icon svg { stroke: var(--cream); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 500ms var(--ease-out-expo), padding 300ms;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.faq-item.open .faq-a { max-height: 300px; padding-bottom: var(--sp-m); }
+
+@media (max-width: 768px) {
+  .faq-inner { grid-template-columns: 1fr; gap: var(--sp-l); }
+  .faq-col-left { position: static; text-align: center; }
+  .faq-col-left .body-text { max-width: 100%; margin-inline: auto; }
+  .faq-col-left .divider-gold { margin-inline: auto; }
+}
+
+/* ════════════════════════════════
+   CTA DESTAQUE
+════════════════════════════════ */
+.cta-section {
+  padding-block: var(--sp-3xl);
+  background: var(--petrol);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 120%, oklch(55% 0.07 220 / 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-monogram {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--ff-display);
+  font-size: clamp(12rem, 30vw, 24rem);
+  font-weight: 600;
+  color: oklch(100% 0 0 / 0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}
+.cta-inner {
+  position: relative;
+  z-index: 1;
+}
+.cta-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin-bottom: var(--sp-m);
+}
+.cta-title em { font-style: italic; color: var(--gold-light); }
+.cta-sub {
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  color: oklch(90% 0.012 200);
+  max-width: 46ch;
+  margin-inline: auto;
+  margin-bottom: var(--sp-xl);
+  line-height: 1.7;
+}
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-m);
+  flex-wrap: wrap;
+}
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border-radius: var(--r-pill);
+  box-shadow: 0 4px 16px oklch(76% 0.06 78 / 0.4);
+  transition: background 200ms, transform 150ms, box-shadow 200ms;
+  min-height: 44px;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px oklch(76% 0.06 78 / 0.5); }
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--ff-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--r-pill);
+  border: 1.5px solid oklch(100% 0 0 / 0.35);
+  transition: background 200ms, transform 150ms;
+  min-height: 44px;
+}
+.btn-ghost-light:hover { background: oklch(100% 0 0 / 0.08); transform: translateY(-2px); }
+
+/* ════════════════════════════════
+   CONTATO / LOCALIZAÇÃO
+════════════════════════════════ */
+.contato {
+  padding-block: var(--sp-3xl);
+  background: var(--cream-warm);
+  overflow: hidden;
+}
+.contato-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+.contato-info {}
+.contato-item {
+  display: flex;
+  gap: var(--sp-m);
+  align-items: flex-start;
+  padding-block: var(--sp-m);
+  border-bottom: 1px solid var(--petrol-mid);
+}
+.contato-item:last-child { border-bottom: none; }
+.contato-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--petrol-mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contato-icon svg { width: 18px; height: 18px; stroke: var(--petrol); fill: none; stroke-width: 1.5; }
+.contato-item-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.35rem;
+}
+.contato-item-value {
+  font-family: var(--ff-display);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.contato-item-sub {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 0.2rem;
+}
+
+.contato-map {
+  border-radius: var(--r-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  height: 100%;
+  min-height: 320px;
+}
+.contato-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .contato-inner { grid-template-columns: 1fr; }
+  .contato-map { min-height: 260px; }
+  .contato-map iframe { min-height: 260px; }
+  .contato-info { text-align: center; }
+  .contato-item { text-align: left; }
+}
+
+/* ════════════════════════════════
+   RODAPÉ
+════════════════════════════════ */
+.footer {
+  background: var(--ink);
+  padding-block: var(--sp-2xl) var(--sp-l);
+  overflow: hidden;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding-bottom: var(--sp-xl);
+  border-bottom: 1px solid oklch(100% 0 0 / 0.1);
+  margin-bottom: var(--sp-l);
+}
+.footer-brand {}
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--sp-m);
+}
+.footer-logo-wrap img { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
+.footer-brand-name {
+  font-family: var(--ff-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--cream);
+  font-style: italic;
+}
+.footer-tagline {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: oklch(75% 0.01 220);
+  max-width: 28ch;
+  margin-bottom: var(--sp-m);
+}
+.footer-cro {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: oklch(55% 0.015 220);
+}
+
+.footer-col-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--sp-m);
+}
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-nav-list a {
+  font-size: 0.82rem;
+  color: oklch(72% 0.01 220);
+  transition: color 200ms;
+  display: block;
+  padding-block: 2px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+.footer-nav-list a:hover { color: var(--cream); }
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.footer-contact-item {
+  font-size: 0.82rem;
+  color: oklch(72% 0.01 220);
+  line-height: 1.5;
+}
+.footer-contact-item strong {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: oklch(55% 0.015 220);
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.footer-social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.footer-social-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: oklch(72% 0.01 220);
+  transition: color 200ms;
+}
+.footer-social-item:hover { color: var(--cream); }
+.footer-social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: oklch(100% 0 0 / 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 200ms;
+}
+.footer-social-item:hover .footer-social-icon { background: var(--petrol); }
+.footer-social-icon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-m);
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-size: 0.7rem;
+  color: oklch(50% 0.01 220);
+  letter-spacing: 0.05em;
+}
+.footer-mono {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-style: italic;
+  color: oklch(50% 0.015 220);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: span 2; }
+}
+@media (max-width: 500px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: span 1; }
+  .footer-bottom { justify-content: center; text-align: center; }
+}
+
+/* ════════════════════════════════
+   SELO SVG
+════════════════════════════════ */
+.selo-svg { display: block; }
+
+/* ════════════════════════════════
+   WHATSAPP FLOAT
+════════════════════════════════ */
+.wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 900;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px oklch(0% 0 0 / 0.25);
+  transition: transform 200ms var(--ease-out-quint), box-shadow 200ms;
+}
+.wa-float:hover { transform: scale(1.08); box-shadow: 0 8px 28px oklch(0% 0 0 / 0.35); }
+.wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+/* ════════════════════════════════
+   UTILITY
+════════════════════════════════ */
+.text-center { text-align: center; }
+.mx-auto { margin-inline: auto; }
+.mt-s { margin-top: var(--sp-s); }
+.mt-m { margin-top: var(--sp-m); }
+.mt-l { margin-top: var(--sp-l); }
+.mt-xl { margin-top: var(--sp-xl); }
+.mb-m { margin-bottom: var(--sp-m); }
+.mb-l { margin-bottom: var(--sp-l); }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.gap-m { gap: var(--sp-m); }
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/5583999457521" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">
+        <img src="https://www.isabellasoterodentista.com.br/assets/Logo-Cb0PqHSe.png" alt="Facial Odontologia" height="36" width="auto">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#tratamentos">Tratamentos</a></li>
+        <li><a href="#galeria">Consultório</a></li>
+        <li><a href="#depoimentos">Pacientes</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="#contato">Localização</a></li>
+      </ul>
+      <a class="btn-primary nav-cta" href="https://wa.me/5583999457521" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar Consulta
+      </a>
+      <button class="nav-hamburger" id="hamburguer" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile">
+      <a href="#sobre">Sobre</a>
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#galeria">Consultório</a>
+      <a href="#depoimentos">Pacientes</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#contato">Localização</a>
+      <a href="https://wa.me/5583999457521" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content" id="hero-content">
+        <span class="hero-edition-tag">João Pessoa · Paraíba · 2026</span>
+        <h1 class="hero-name">
+          Dra. Isabella
+          <em>Sotero</em>
+        </h1>
+        <p class="hero-title-line">Cirurgiã-Dentista · Reabilitação Oral</p>
+        <p class="hero-tagline">Cada sorriso conta uma <em>história única.</em></p>
+        <p class="hero-sub">Especialista em implantes, próteses fixas e reabilitação oral de alta complexidade, com precisão técnica e cuidado profundamente humano.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://wa.me/5583999457521" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar Consulta
+          </a>
+          <a class="btn-ghost" href="#sobre">Conheça a Dra.</a>
+        </div>
+        <div class="hero-cro">CRO-PB 6125</div>
+      </div>
+
+      <div class="hero-visual" id="hero-visual">
+        <div class="hero-monogram" aria-hidden="true">IS</div>
+        <div class="hero-photo-wrap" id="hero-photo">
+          <img src="https://www.isabellasoterodentista.com.br/assets/SelfPortrait-CsyEEo2C.jpg" alt="Dra. Isabella Sotero, cirurgiã-dentista especialista em reabilitação oral" width="480" height="640" loading="eager">
+          <div class="hero-photo-scrim"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILIDADE -->
+<section class="cred" id="credibilidade">
+  <div class="container">
+    <div class="cred-inner">
+      <div class="cred-item reveal-item">
+        <div class="cred-number">5<sup>+</sup></div>
+        <div class="cred-label">Especializações<br>Concluídas</div>
+      </div>
+      <div class="cred-item reveal-item">
+        <div class="cred-number">10<sup>+</sup></div>
+        <div class="cred-label">Anos de<br>Experiência</div>
+      </div>
+      <div class="cred-item reveal-item">
+        <div class="cred-number">Alta</div>
+        <div class="cred-label">Complexidade<br>em Implantes</div>
+      </div>
+      <div class="cred-item reveal-item">
+        <div class="cred-number">CRO</div>
+        <div class="cred-label">PB 6125<br>Certificada</div>
+      </div>
+    </div>
+    <div class="cred-institutions reveal-item">
+      <span class="cred-inst-item">UFCG</span>
+      <span style="color: oklch(100% 0 0 / 0.2); font-size: 0.6rem;">·</span>
+      <span class="cred-inst-item">UFPB</span>
+      <span style="color: oklch(100% 0 0 / 0.2); font-size: 0.6rem;">·</span>
+      <span class="cred-inst-item">UNIPE</span>
+      <span style="color: oklch(100% 0 0 / 0.2); font-size: 0.6rem;">·</span>
+      <span class="cred-inst-item">UniFIP</span>
+      <span style="color: oklch(100% 0 0 / 0.2); font-size: 0.6rem;">·</span>
+      <span class="cred-inst-item">ABO / PB</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-monogram-bg" aria-hidden="true">IS</div>
+    <div class="sobre-inner">
+      <div class="sobre-photo-col reveal-item">
+        <div class="sobre-arc">
+          <img src="https://www.isabellasoterodentista.com.br/assets/SelfPortrait-CsyEEo2C.jpg" alt="Dra. Isabella Sotero no consultório" width="420" height="560" loading="lazy">
+          <div class="sobre-arc-scrim"></div>
+        </div>
+        <div class="sobre-badge">
+          <svg class="selo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" width="120" height="120">
+            <circle cx="60" cy="60" r="54" fill="none" stroke="#C9A96E" stroke-width="1"/>
+            <circle cx="60" cy="60" r="48" fill="oklch(28% 0.07 220)" stroke="#C9A96E" stroke-width="0.5"/>
+            <text font-family="Cormorant Garamond, Georgia, serif" font-size="28" font-weight="500" fill="#F5F0E8" text-anchor="middle" dominant-baseline="middle" x="60" y="57" font-style="italic">IS</text>
+            <text font-family="Jost, sans-serif" font-size="6.5" fill="#C9A96E" letter-spacing="2.5" text-anchor="middle" x="60" y="76">CRO-PB 6125</text>
+            <path id="topArc" d="M 18 60 A 42 42 0 0 1 102 60" fill="none"/>
+            <text font-family="Jost, sans-serif" font-size="6" fill="#C9A96E" letter-spacing="2">
+              <textPath href="#topArc" startOffset="50%" text-anchor="middle">FACIAL ODONTOLOGIA</textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="sobre-content reveal-item">
+        <span class="label-tag">Sobre a Especialista</span>
+        <h2 class="section-title">Alta complexidade,<br>cuidado <em>humano.</em></h2>
+        <div class="divider-gold"></div>
+        <p class="sobre-quote">"Cada sorriso conta uma história, e minha missão é escrever capítulos de transformação com segurança e precisão."</p>
+        <p class="sobre-text">Sou cirurgiã-dentista com foco em reabilitação oral de alta complexidade. Minha prática une o rigor técnico das melhores universidades do Nordeste com uma escuta atenta e um cuidado que vai além do tratamento.</p>
+        <p class="sobre-text">Acredito que um sorriso reabilitado transforma não apenas a estética, mas a autoestima e a qualidade de vida de cada paciente.</p>
+
+        <div class="sobre-formacoes">
+          <div class="sobre-form-item">
+            <span class="sobre-form-dot"></span>
+            <span>Graduação em Odontologia — Universidade Federal de Campina Grande</span>
+          </div>
+          <div class="sobre-form-item">
+            <span class="sobre-form-dot"></span>
+            <span>Mestrado em Saúde Oral Coletiva — Universidade Federal da Paraíba</span>
+          </div>
+          <div class="sobre-form-item">
+            <span class="sobre-form-dot"></span>
+            <span>Especialização em Implantes e Prótese sobre Implantes — UNIPE</span>
+          </div>
+          <div class="sobre-form-item">
+            <span class="sobre-form-dot"></span>
+            <span>Pós-graduação em Cirurgia Oral Menor — UniFIP</span>
+          </div>
+          <div class="sobre-form-item">
+            <span class="sobre-form-dot"></span>
+            <span>Pós-graduação em Prótese Dentária — ABO/PB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section class="tratamentos" id="tratamentos">
+  <div class="container">
+    <div class="tratamentos-header">
+      <div>
+        <span class="label-tag">Especialidades</span>
+        <h2 class="section-title">Tratamentos de<br><em>alta complexidade.</em></h2>
+      </div>
+      <div class="tratamentos-header-right">
+        <p class="body-text">Do diagnóstico ao resultado final, cada procedimento é planejado com precisão e executado com tecnologia de ponta para garantir o melhor resultado para você.</p>
+      </div>
+    </div>
+
+    <div class="tratamentos-grid">
+      <div class="trat-card reveal-item">
+        <div class="trat-card-img">
+          <img src="https://www.isabellasoterodentista.com.br/assets/Implants-BLG7_Vih.png" alt="Implantes dentários" width="400" height="225" loading="lazy">
+        </div>
+        <div class="trat-card-body">
+          <span class="trat-card-num">01</span>
+          <h3 class="trat-card-title">Implantes Dentários</h3>
+          <p class="trat-card-desc">Solução definitiva para dentes perdidos. Raízes artificiais de titânio que devolvem função mastigatória e estética com durabilidade e naturalidade.</p>
+          <a class="trat-card-link" href="https://wa.me/5583999457521" target="_blank" rel="noopener">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+
+      <div class="trat-card reveal-item">
+        <div class="trat-card-img">
+          <img src="https://www.isabellasoterodentista.com.br/assets/Fixed_Prosthesis-BIECyS-p.png" alt="Próteses fixas dentárias" width="400" height="225" loading="lazy">
+        </div>
+        <div class="trat-card-body">
+          <span class="trat-card-num">02</span>
+          <h3 class="trat-card-title">Próteses Fixas</h3>
+          <p class="trat-card-desc">Coroas e pontes que integram perfeitamente ao sorriso, restaurando a estética e a função com materiais de última geração.</p>
+          <a class="trat-card-link" href="https://wa.me/5583999457521" target="_blank" rel="noopener">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+
+      <div class="trat-card reveal-item">
+        <div class="trat-card-img">
+          <img src="https://www.isabellasoterodentista.com.br/assets/Removable_Prosthesis-kjr13LSP.jpeg" alt="Próteses removíveis" width="400" height="225" loading="lazy">
+        </div>
+        <div class="trat-card-body">
+          <span class="trat-card-num">03</span>
+          <h3 class="trat-card-title">Próteses Removíveis</h3>
+          <p class="trat-card-desc">Alternativa confortável e estética para reabilitação oral parcial ou total, adaptada às necessidades individuais de cada paciente.</p>
+          <a class="trat-card-link" href="https://wa.me/5583999457521" target="_blank" rel="noopener">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+
+      <div class="trat-card reveal-item">
+        <div class="trat-card-img">
+          <img src="https://www.isabellasoterodentista.com.br/assets/Lens-A0qr5Vqv.png" alt="Lentes de contato dentais" width="400" height="225" loading="lazy">
+        </div>
+        <div class="trat-card-body">
+          <span class="trat-card-num">04</span>
+          <h3 class="trat-card-title">Lentes de Contato Dentais</h3>
+          <p class="trat-card-desc">Finas lâminas de porcelana que transformam a aparência dos dentes com mínimo desgaste, para um resultado natural e luminoso.</p>
+          <a class="trat-card-link" href="https://wa.me/5583999457521" target="_blank" rel="noopener">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+
+      <div class="trat-card reveal-item">
+        <div class="trat-card-img">
+          <img src="https://www.isabellasoterodentista.com.br/assets/Facets-Dy72N0ww.png" alt="Facetas em resina" width="400" height="225" loading="lazy">
+        </div>
+        <div class="trat-card-body">
+          <span class="trat-card-num">05</span>
+          <h3 class="trat-card-title">Facetas em Resina</h3>
+          <p class="trat-card-desc">Transformação estética rápida e acessível com resina composta de alta qualidade, modelada diretamente sobre os dentes.</p>
+          <a class="trat-card-link" href="https://wa.me/5583999457521" target="_blank" rel="noopener">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+
+      <div class="trat-card reveal-item">
+        <div class="trat-card-img">
+          <img src="https://www.isabellasoterodentista.com.br/assets/Restoration-Ccqpsr89.png" alt="Restaurações dentárias" width="400" height="225" loading="lazy">
+        </div>
+        <div class="trat-card-body">
+          <span class="trat-card-num">06</span>
+          <h3 class="trat-card-title">Restaurações</h3>
+          <p class="trat-card-desc">Restauração de dentes comprometidos com materiais biocompatíveis que replicam a cor e a textura natural, devolvendo saúde e função.</p>
+          <a class="trat-card-link" href="https://wa.me/5583999457521" target="_blank" rel="noopener">Saiba mais <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como" id="como-funciona">
+  <div class="container">
+    <div class="como-inner">
+      <div class="como-img reveal-item">
+        <img src="assets/ai-1.jpg" alt="Ambiente do consultório Facial Odontologia" loading="lazy" width="450" height="560">
+      </div>
+      <div class="reveal-item">
+        <span class="label-tag">Processo</span>
+        <h2 class="section-title">Como <em>funciona</em><br>seu tratamento.</h2>
+        <div class="divider-gold"></div>
+        <div class="como-steps">
+          <div class="como-step">
+            <div class="como-step-num">01</div>
+            <div class="como-step-content">
+              <h3 class="como-step-title">Avaliação Completa</h3>
+              <p class="como-step-desc">Consulta detalhada com exame clínico, radiográfico e conversa aprofundada sobre seus objetivos e expectativas.</p>
+            </div>
+          </div>
+          <div class="como-step">
+            <div class="como-step-num">02</div>
+            <div class="como-step-content">
+              <h3 class="como-step-title">Planejamento Personalizado</h3>
+              <p class="como-step-desc">Elaboração de um plano de tratamento exclusivo, com cronograma, materiais e protocolos selecionados para o seu caso.</p>
+            </div>
+          </div>
+          <div class="como-step">
+            <div class="como-step-num">03</div>
+            <div class="como-step-content">
+              <h3 class="como-step-title">Execução com Precisão</h3>
+              <p class="como-step-desc">Cada etapa realizada com rigor técnico, tecnologia de ponta e atenção total ao seu conforto durante os procedimentos.</p>
+            </div>
+          </div>
+          <div class="como-step">
+            <div class="como-step-num">04</div>
+            <div class="como-step-content">
+              <h3 class="como-step-title">Resultado e Acompanhamento</h3>
+              <p class="como-step-desc">Entrega do sorriso transformado com acompanhamento contínuo para garantir saúde, durabilidade e sua satisfação plena.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria" id="galeria">
+  <div class="container">
+    <div class="galeria-header reveal-item">
+      <span class="label-tag">Nosso Espaço</span>
+      <h2 class="section-title">O ambiente <em>certo</em><br>para o seu cuidado.</h2>
+    </div>
+    <div class="galeria-grid">
+      <div class="gal-item large reveal-item">
+        <img src="https://www.isabellasoterodentista.com.br/assets/Clinic1-CrFw7skq.jpeg" alt="Recepção do consultório Facial Odontologia" loading="lazy" width="800" height="450">
+        <div class="gal-item-overlay"></div>
+      </div>
+      <div class="gal-item tall reveal-item">
+        <img src="https://www.isabellasoterodentista.com.br/assets/Clinic2-CKyUwt7x.jpeg" alt="Consultório odontológico moderno" loading="lazy" width="400" height="533">
+        <div class="gal-item-overlay"></div>
+      </div>
+      <div class="gal-item standard reveal-item">
+        <img src="https://www.isabellasoterodentista.com.br/assets/Clinic3-C6EZqZoF.jpeg" alt="Área de espera acolhedora" loading="lazy" width="400" height="300">
+        <div class="gal-item-overlay"></div>
+      </div>
+      <div class="gal-item standard reveal-item">
+        <img src="https://www.isabellasoterodentista.com.br/assets/Clinic4-C978iZFG.jpeg" alt="Detalhe de equipamentos odontológicos" loading="lazy" width="400" height="300">
+        <div class="gal-item-overlay"></div>
+      </div>
+      <div class="gal-item wide reveal-item">
+        <img src="https://www.isabellasoterodentista.com.br/assets/Clinic5-DACzJc35.jpeg" alt="Sala de tratamento com tecnologia moderna" loading="lazy" width="800" height="450">
+        <div class="gal-item-overlay"></div>
+      </div>
+      <div class="gal-item square reveal-item">
+        <img src="https://www.isabellasoterodentista.com.br/assets/Clinic6-CYVI-VH0.jpeg" alt="Detalhes do consultório Facial Odontologia" loading="lazy" width="400" height="400">
+        <div class="gal-item-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <div class="container">
+    <div class="depoimentos-header reveal-item">
+      <span class="label-tag">Pacientes</span>
+      <h2 class="section-title">Histórias de <em>transformação.</em></h2>
+    </div>
+    <div class="depoimentos-grid">
+      <div class="dep-card reveal-item">
+        <div class="dep-quote-mark">"</div>
+        <p class="dep-text">A Dra. Isabella transformou minha autoestima. Fiz implantes com ela e o cuidado em cada etapa foi impressionante. Resultado natural, parece que sempre foram meus dentes.</p>
+        <div class="dep-stars">
+          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
+        </div>
+        <div class="dep-author">
+          <div>
+            <div class="dep-author-name">Mariana Cavalcante</div>
+            <div class="dep-author-context">Implantes · João Pessoa, PB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card reveal-item">
+        <div class="dep-quote-mark">"</div>
+        <p class="dep-text">Tinha muito medo de dentista, mas a Dra. Isabella me deixou completamente à vontade. Fiz as lentes de contato dentais e o resultado é exatamente o que eu sempre sonhei.</p>
+        <div class="dep-stars">
+          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
+        </div>
+        <div class="dep-author">
+          <div>
+            <div class="dep-author-name">Fernanda Oliveira</div>
+            <div class="dep-author-context">Lentes de Contato · João Pessoa, PB</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card reveal-item">
+        <div class="dep-quote-mark">"</div>
+        <p class="dep-text">Profissional excepcional. Fiz a reabilitação completa com prótese fixa e o atendimento foi humanizado do início ao fim. Indico sem hesitar para todos da família.</p>
+        <div class="dep-stars">
+          <span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span><span class="dep-star">★</span>
+        </div>
+        <div class="dep-author">
+          <div>
+            <div class="dep-author-name">Roberto Almeida</div>
+            <div class="dep-author-context">Prótese Fixa · João Pessoa, PB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-col-left reveal-item">
+        <span class="label-tag">Dúvidas Frequentes</span>
+        <h2 class="section-title">Perguntas<br>que <em>fazem</em><br>sentido.</h2>
+        <div class="divider-gold"></div>
+        <p class="body-text">Tire suas principais dúvidas antes de agendar. Transparência e clareza fazem parte do nosso cuidado.</p>
+        <div class="mt-xl">
+          <a class="btn-primary" href="https://wa.me/5583999457521" target="_blank" rel="noopener">Falar com a Dra.</a>
+        </div>
+      </div>
+
+      <div class="faq-list reveal-item" id="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            A colocação de implante dói?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a">O procedimento é realizado sob anestesia local, portanto você não sente dor durante a cirurgia. No pós-operatório pode haver desconforto leve por 2 a 3 dias, controlado com medicação prescrita. A maioria dos pacientes fica surpresa com o quanto é tranquilo.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Quanto tempo dura um implante dentário?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a">Com higiene adequada e acompanhamento regular, implantes bem posicionados podem durar a vida toda. A osteointegração (fusão com o osso) é permanente e os materiais usados são biocompatíveis e extremamente resistentes.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Qual a diferença entre prótese removível e fixa?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a">A prótese removível pode ser retirada para higienização e é uma boa solução para ausências múltiplas. Já a prótese fixa (sobre implantes ou dentes) oferece maior conforto, estabilidade e sensação mais próxima dos dentes naturais. A indicação depende do seu caso clínico e dos seus objetivos.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Quanto tempo leva o tratamento completo?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a">Depende da complexidade do caso. Restaurações e facetas podem ser concluídas em algumas sessões. Implantes envolvem um período de osseointegração de 3 a 6 meses. Reabilitações completas são planejadas com cronograma detalhado na consulta inicial.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Lentes de contato dentais versus facetas: qual escolher?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a">As lentes de contato dentais são em porcelana ultrafina, extremamente estéticas e com mínimo desgaste dental, ideais para quem busca o resultado mais natural possível. As facetas em resina são mais acessíveis e podem ser feitas em menor tempo. A escolha ideal é definida após avaliação clínica.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como funciona a primeira consulta?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-a">A primeira consulta é uma avaliação completa: exame clínico, análise de imagens e uma conversa para entender seus objetivos. Ao final, você recebe um plano de tratamento detalhado e transparente, sem compromisso imediato.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA DESTAQUE -->
+<section class="cta-section" id="agendamento">
+  <div class="cta-monogram" aria-hidden="true">IS</div>
+  <div class="container">
+    <div class="cta-inner reveal-item">
+      <span class="label-tag" style="color: var(--gold-light); border-color: oklch(76% 0.06 78 / 0.5);">Agende Agora</span>
+      <h2 class="cta-title">Seu novo sorriso<br>começa com uma <em>conversa.</em></h2>
+      <p class="cta-sub">Agende sua consulta de avaliação e descubra como a reabilitação oral pode transformar sua saúde, autoestima e qualidade de vida.</p>
+      <div class="cta-buttons">
+        <a class="btn-gold" href="https://wa.me/5583999457521" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar pelo WhatsApp
+        </a>
+        <a class="btn-ghost-light" href="#contato">
+          Ver localização
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="container">
+    <div class="reveal-item mb-l">
+      <span class="label-tag">Localização</span>
+      <h2 class="section-title">Venha nos <em>visitar.</em></h2>
+    </div>
+    <div class="contato-inner">
+      <div class="contato-info reveal-item">
+        <div class="contato-item">
+          <div class="contato-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contato-item-label">Endereço</div>
+            <div class="contato-item-value">Av. Pres. Epitácio Pessoa, 735</div>
+            <div class="contato-item-sub">Sala 01 · Bairro dos Estados · João Pessoa · PB · 58030-000</div>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contato-item-label">WhatsApp</div>
+            <div class="contato-item-value">
+              <a href="https://wa.me/5583999457521" target="_blank" rel="noopener" style="color: inherit;">(83) 99945-7521</a>
+            </div>
+            <div class="contato-item-sub">Resposta rápida pelo WhatsApp</div>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contato-item-label">Horário de Atendimento</div>
+            <div class="contato-item-value">Segunda a Sexta: 8h às 18h</div>
+            <div class="contato-item-sub">Sábado: 8h às 12h</div>
+          </div>
+        </div>
+
+        <div class="contato-item">
+          <div class="contato-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div>
+            <div class="contato-item-label">Instagram</div>
+            <div class="contato-item-value">
+              <a href="https://www.instagram.com/draisabellapmsotero" target="_blank" rel="noopener" style="color: inherit;">@draisabellapmsotero</a>
+            </div>
+            <div class="contato-item-sub">Acompanhe no Instagram</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contato-map reveal-item">
+        <iframe src="https://www.google.com/maps?q=Av.+Pres.+Epitácio+Pessoa,+735,+João+Pessoa,+PB&output=embed" loading="lazy" title="Localização Facial Odontologia" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer class="footer" id="rodape">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="https://www.isabellasoterodentista.com.br/assets/Logo-Cb0PqHSe.png" alt="Facial Odontologia" height="32" width="auto" loading="lazy">
+          <span class="footer-brand-name">Facial Odontologia</span>
+        </div>
+        <p class="footer-tagline">Reabilitação oral de alta complexidade com precisão técnica e cuidado humano em João Pessoa, Paraíba.</p>
+        <div class="footer-cro">CRO-PB 6125 · João Pessoa, Paraíba</div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Navegação</div>
+        <ul class="footer-nav-list">
+          <li><a href="#sobre">Sobre a Dra.</a></li>
+          <li><a href="#tratamentos">Tratamentos</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#galeria">Consultório</a></li>
+          <li><a href="#depoimentos">Pacientes</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contato</div>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/5583999457521" target="_blank" rel="noopener" style="color: inherit;">(83) 99945-7521</a>
+          </div>
+          <div class="footer-contact-item">
+            <strong>Endereço</strong>
+            Av. Pres. Epitácio Pessoa, 735<br>Sala 01 · Bairro dos Estados<br>João Pessoa · PB
+          </div>
+          <div class="footer-contact-item">
+            <strong>Horário</strong>
+            Seg–Sex: 8h–18h<br>Sáb: 8h–12h
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Redes Sociais</div>
+        <div class="footer-social-list">
+          <a class="footer-social-item" href="https://www.instagram.com/draisabellapmsotero" target="_blank" rel="noopener">
+            <span class="footer-social-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </span>
+            @draisabellapmsotero
+          </a>
+          <a class="footer-social-item" href="https://wa.me/5583999457521" target="_blank" rel="noopener">
+            <span class="footer-social-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </span>
+            WhatsApp
+          </a>
+          <a class="footer-social-item" href="https://www.isabellasoterodentista.com.br/" target="_blank" rel="noopener">
+            <span class="footer-social-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </span>
+            isabellasoterodentista.com.br
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Facial Odontologia · Dra. Isabella Sotero · CRO-PB 6125 · Todos os direitos reservados.</div>
+      <div class="footer-mono">IS</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var ham = document.getElementById('hamburguer');
+  var mob = document.getElementById('nav-mobile');
+  if (ham && mob) {
+    ham.addEventListener('click', function() {
+      var open = mob.classList.toggle('open');
+      ham.setAttribute('aria-expanded', open);
+    });
+    mob.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        mob.classList.remove('open');
+        ham.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var faqList = document.getElementById('faq-list');
+  if (faqList) {
+    faqList.querySelectorAll('.faq-item').forEach(function(item) {
+      var q = item.querySelector('.faq-q');
+      if (q) {
+        q.addEventListener('click', function() {
+          var isOpen = item.classList.contains('open');
+          faqList.querySelectorAll('.faq-item.open').forEach(function(other) {
+            other.classList.remove('open');
+            var oq = other.querySelector('.faq-q');
+            if (oq) oq.setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            q.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+    });
+  }
+})();
+</script>
+
+<script>
+window.addEventListener('load', function() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.set('#hero-content', { opacity: 0, y: 24 });
+  gsap.set('#hero-photo', { opacity: 0, y: 32 });
+
+  gsap.timeline({ delay: 0.1 })
+    .to('#hero-content', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' })
+    .to('#hero-photo', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5');
+
+  document.fonts.ready.then(function() {
+    gsap.set('.reveal-item', { opacity: 0, y: 20 });
+
+    ScrollTrigger.batch('.reveal-item', {
+      once: true,
+      start: 'top 88%',
+      onEnter: function(batch) {
+        gsap.to(batch, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: 'power3.out'
+        });
+      }
+    });
+
+    ScrollTrigger.refresh();
+  });
+});
+</script>
+</body>
+</html>
